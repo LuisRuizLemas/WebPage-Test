@@ -34,10 +34,8 @@ node {
         }
     }
     stage('Limpiando') {
-      steps{
         sh "docker rmi $app:$BUILD_NUMBER"
          sh "docker rmi $app:latest"
 
-      }
     }
 }
