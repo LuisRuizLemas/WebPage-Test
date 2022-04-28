@@ -1,20 +1,20 @@
 node {
     def app
 
-    stage('Clonando el repositorio') {
+    stage('Cloning the repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
 
-    stage('Haciendo Build a la imagen') {
+    stage('Build Docker Image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
         app = docker.build("luislink24/webpage")
     }
 
-    stage('Realizando Pruebas a la imagen') {
+    stage('Test') {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
@@ -23,7 +23,7 @@ node {
        }
     }
 
-    stage('Subiendo imagen') {
+    stage('Push Docker Image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -33,7 +33,7 @@ node {
             app.push("latest")
         }
     }
-    stage ('Limpiando') {
+    stage ('Clean') {
     deleteDir()
     }
 
