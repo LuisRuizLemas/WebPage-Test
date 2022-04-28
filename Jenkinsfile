@@ -18,7 +18,7 @@ node {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
-        dockerImage.inside("--entrypoint=''") {
+        app.inside("--entrypoint=''") {
                           echo "Tests passed"
        }
     }
