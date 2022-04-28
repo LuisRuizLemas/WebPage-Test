@@ -1,29 +1,29 @@
 node {
     def app
 
-    stage('Clone repository') {
+    stage('1.Clonando el repositorio') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
 
-    stage('Build image') {
+    stage('2.Haciendo Build a la imagen') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
         app = docker.build("luislink24/webpage")
     }
 
-    stage('Test image') {
+    stage('Realizando Pruebas a la imagen') {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
         app.inside("--entrypoint=''") {
-                          echo "Tests passed"
+                          echo "Test con exito!"
        }
     }
 
-    stage('Push image') {
+    stage('Subiendo imagen') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
