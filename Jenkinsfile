@@ -37,7 +37,7 @@ node {
     deleteDir()
     }
 
-    stage ('Checkout') {
+    stage ('Successfully completed') {
     checkout scm 
     }
 
