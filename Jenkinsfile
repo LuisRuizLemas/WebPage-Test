@@ -14,7 +14,7 @@ node {
         app = docker.build("luislink24/webpage")
     }
 
-    stage('Realizando Pruebas a la imagen') {
+    stage('3.Realizando Pruebas a la imagen') {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
@@ -23,7 +23,7 @@ node {
        }
     }
 
-    stage('Subiendo imagen') {
+    stage('4.Subiendo imagen') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
