@@ -41,5 +41,4 @@ node {
     checkout scm 
     }
 
-    }
 }
