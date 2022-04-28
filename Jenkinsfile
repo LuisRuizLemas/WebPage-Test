@@ -33,10 +33,10 @@ node {
             app.push("latest")
         }
     }
-    stage('Remove Unused docker image') {
+    stage('Limpiando') {
       steps{
-        sh "docker rmi $imagename:$BUILD_NUMBER"
-         sh "docker rmi $imagename:latest"
+        sh "docker rmi $app:$BUILD_NUMBER"
+         sh "docker rmi $app:latest"
 
       }
     }
